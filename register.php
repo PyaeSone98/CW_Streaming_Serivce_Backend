@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+include 'dbconnect.php';
 session_start();
 
 // Check if user is logged in

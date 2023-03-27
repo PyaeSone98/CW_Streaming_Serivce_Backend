@@ -3,11 +3,10 @@ include_once 'core.php';
 include 'dbconnect.php';
 
 // Sanitize the user ID and entity ID from the request
-// $user_id = filter_input(INPUT_GET, 'user_id', FILTER_SANITIZE_NUMBER_INT);
-// $entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
+ $user_id = filter_input(INPUT_GET, 'user_id', FILTER_SANITIZE_NUMBER_INT);
+ $entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
 
-$user_id = $_GET['user_id'];
-$entity_id=$_GET['entity_id'];
+
 
 // Check if user ID and entity ID are valid
 if (!$user_id || !$entity_id) {
