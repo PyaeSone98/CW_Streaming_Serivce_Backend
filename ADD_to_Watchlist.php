@@ -1,11 +1,18 @@
 <?php
+include 'decodetoken.php';
 include_once 'core.php';
 include 'dbconnect.php';
+// get the JWT token from the Authorization header
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
 
-// Sanitize the user ID and entity ID from the request
- $user_id = filter_input(INPUT_GET, 'user_id', FILTER_SANITIZE_NUMBER_INT);
- $entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
 
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
+
+
+
+$entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
 
 
 // Check if user ID and entity ID are valid

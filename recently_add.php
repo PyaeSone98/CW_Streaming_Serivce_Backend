@@ -1,6 +1,6 @@
 <?php
-include_once('core.php');
-include('dbconnect.php');
+include_once 'core.php';
+include 'dbconnect.php';
 
 $recentlyadded_query = "SELECT * FROM entity ORDER BY date_added DESC LIMIT 7";
 $recentlyadded_result= $db->query($recentlyadded_query);

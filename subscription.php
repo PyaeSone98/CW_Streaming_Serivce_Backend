@@ -1,14 +1,18 @@
 <?php
 include_once 'core.php';
-session_start();
+include 'decodetoken.php';
 include 'dbconnect.php';
 
-$id = $_SESSION['user_id'];
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
+
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
 
 try {
     // Set billing plan to true for current user
     $stmt = $db->prepare('UPDATE users SET billing_plan = true, last_billing_date = NOW() WHERE id = ?');
-    $stmt->execute([$id]);
+    $stmt->execute([$user_id]);
 
     echo json_encode(array('success' => true));
 } catch (PDOException $e) {

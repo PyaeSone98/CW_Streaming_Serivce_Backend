@@ -1,10 +1,13 @@
 <?php
 include_once 'core.php';
 include 'dbconnect.php';
+include 'decodetoken.php';
 
-// Sanitize the user ID from the request
-// $user_id = filter_input(INPUT_GET, 'user_id', FILTER_SANITIZE_NUMBER_INT);
-$user_id=$_GET['user_id'];
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
+
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
 
 if(!$user_id){
     header("HTTP/1.0 400 Bad Request");

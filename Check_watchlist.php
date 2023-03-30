@@ -1,11 +1,15 @@
 <?php
 include_once 'core.php';
 include 'dbconnect.php';
-
+include 'decodetoken.php';
 // Sanitize the user ID and entity ID from the request
-$user_id = 1;
-$entity_id = 19;
 
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
+
+
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
 
 
 // Check if user ID and entity ID are valid

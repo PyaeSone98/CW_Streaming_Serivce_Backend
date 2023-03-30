@@ -1,13 +1,17 @@
 <?php
 include_once 'core.php';
 include 'dbconnect.php';
+include 'decodetoken.php';
 
-// Sanitize the user ID and entity ID from the request
-// $user_id = filter_input(INPUT_GET, 'user_id', FILTER_SANITIZE_NUMBER_INT);
-// $entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
 
-$user_id = 3;
-$entity_id=2;
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
+
+$entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
+
+
 
 // Check if user ID and entity ID are valid
 if (!$user_id || !$entity_id) {

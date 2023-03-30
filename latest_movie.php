@@ -25,7 +25,9 @@ if($check_entity_type==1) {
         $movie_data=$lastest_movie_data;
 
     }
+    $movie_data['cover']= "https://dx35vtwkllhj9.cloudfront.net/universalstudios/super-mario-bros/images/regions/us/header.jpg";
     echo json_encode($movie_data);
+    
 }else {
     $lastest_tvshow_query ="SELECT * FROM episodes WHERE entity_ID=$id";
     $latest_tvshow_result = $db->query($lastest_tvshow_query);

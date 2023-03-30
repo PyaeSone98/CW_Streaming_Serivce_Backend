@@ -1,0 +1,16 @@
+{
+    "name": "codeworm/streaming",
+    "description": "A PHP backend for calling api for react used for streaming services",
+    "type": "library",
+    "license": "MIT license",
+    "authors": [
+        {
+            "name": "PyaeSone98",
+            "email": "107252632+PyaeSone98@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.4"
+    }
+}

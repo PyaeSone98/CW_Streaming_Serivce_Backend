@@ -1,16 +1,23 @@
 <?php
 include_once 'core.php';
 include 'dbconnect.php';
+include 'decodetoken.php';
 
-session_start();
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+$token = str_replace('Bearer ', '', $authHeader);
 
-$id = $_SESSION['user_id'];
-$user_info_query = "SELECT first_name,last_name,username,email,billing_plan FROM users WHERE id= $id";
+$decodedToken = decodeToken($token);
+$user_id = $decodedToken;
+
+$user_info_query = "SELECT first_name,last_name,username,email,billing_plan FROM users WHERE id= $user_id";
 $user_info_result =$db->query($user_info_query);
 
 if($user_info_result->num_rows>0) {
     $user_data = $user_info_result->fetch_assoc();
-}
     echo json_encode($user_data);
+}else {
+    echo json_encode(array("user info not found"));
+}
+    
 
 ?>

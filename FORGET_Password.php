@@ -3,8 +3,10 @@ include 'core.php';
 include 'dbconnect.php';
 
 
-$data = json_decode(file_get_contents('php://input'), true);
-$email = $data['email'];
+// $data = json_decode(file_get_contents('php://input'), true);
+// $email = $data['email'];
+
+$email = "codeworms23@gmail.com";
 
 // Query to fetch user by email
 $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
@@ -33,8 +35,8 @@ $to = $email;
 $subject = 'Password Reset OTP';
 $message = 'Your OTP is: ' . $otp;
 $headers = 'From: codeworms23@gmail.com' . "\r\n" .
-    'Reply-To: codeworms23@gmail.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+            $email . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, $message, $headers);
 
