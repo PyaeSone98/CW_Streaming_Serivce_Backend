@@ -14,7 +14,7 @@ if ($stmt->execute()) {
   $movies = array();
   
   if(mysqli_num_rows($result) === 0) {
-      echo json_encode(array('message' => 'Movie not found'));
+      echo json_encode(array('message' => 'Movie/tvshow not found'));
   } else {
       while ($row = $result->fetch_assoc()) {
         $movies[] = $row;
@@ -26,7 +26,7 @@ if ($stmt->execute()) {
 
 } else {
   header("HTTP/1.0 500 Internal Server Error");
-  echo json_encode(array('error' => 'Could not search movies'));
+  echo json_encode(array('error' => 'Could not search movies or tvshows'));
 }
 
 $stmt->close();

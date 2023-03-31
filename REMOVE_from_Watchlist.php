@@ -38,7 +38,7 @@ if ($stmt->execute()) {
 } else {
     // Return error message as JSON
     header("HTTP/1.0 500 Internal Server Error");
-    echo json_encode(array('errpppor' => 'Could not remove from watchlist'));
+    echo json_encode(array('error' => 'Could not remove from watchlist'));
 }
 $stmt->close();
 ?>

@@ -11,6 +11,8 @@ $token = str_replace('Bearer ', '', $authHeader);
 $decodedToken = decodeToken($token);
 $user_id = $decodedToken;
 
+$entity_id = filter_input(INPUT_GET, 'entity_ID', FILTER_SANITIZE_NUMBER_INT);
+
 
 // Check if user ID and entity ID are valid
 if (!$user_id || !$entity_id) {
@@ -33,7 +35,7 @@ if ($stmt->execute()) {
         $check_data = array();
         $check_data['is_in_watchlist'] = true;
         $check_data['watchlist_entry'] = $result->fetch_assoc();
-        echo json_encode($data);
+        echo json_encode($check_data);
     } else {
         // Return success message as JSON with no watchlist information
         echo json_encode(array('is_in_watchlist' => false));

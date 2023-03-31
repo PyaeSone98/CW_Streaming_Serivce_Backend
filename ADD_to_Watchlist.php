@@ -12,7 +12,7 @@ $user_id = $decodedToken;
 
 
 
-$entity_id = filter_input(INPUT_GET, 'entity_id', FILTER_SANITIZE_NUMBER_INT);
+$entity_id = filter_input(INPUT_GET, 'entity_ID', FILTER_SANITIZE_NUMBER_INT);
 
 
 // Check if user ID and entity ID are valid

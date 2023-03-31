@@ -6,19 +6,18 @@ require_once 'vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 
-// $data = json_decode(file_get_contents("php://input"), true);
+$data = json_decode(file_get_contents("php://input"), true);
 
-// if (!isset($data['email']) || !isset($data['password'])) {
-//     header('HTTP/1.1 400 Bad Request');
-//     echo json_encode(array('error' => 'Email and password are required'));
-//     exit;
-// }
+if (!isset($data['email']) || !isset($data['password'])) {
+    header('HTTP/1.1 400 Bad Request');
+    echo json_encode(array('error' => 'Email and password are required'));
+    exit;
+}
 
-// $email = $data['email'];
-// $password = $data['password'];
+$email = $data['email'];
+$password = $data['password'];
 
-$email= "codeworms23@gmail.com";
-$password = "12345678910";
+
 
 // Validate email format
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

@@ -3,10 +3,10 @@ include 'core.php';
 include 'dbconnect.php';
 
 
-// $data = json_decode(file_get_contents('php://input'), true);
-// $email = $data['email'];
+$data = json_decode(file_get_contents('php://input'), true);
+$email = $data['email'];
 
-$email = "codeworms23@gmail.com";
+
 
 // Query to fetch user by email
 $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
