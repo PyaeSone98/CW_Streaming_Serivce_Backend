@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2023 at 09:01 AM
+-- Generation Time: Mar 31, 2023 at 06:58 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -254,7 +254,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `billing_plan` tinyint(1) NOT NULL DEFAULT 0,
   `last_billing_date` date DEFAULT NULL,
-  `OTP` int(4) DEFAULT NULL
+  `OTP` int(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -262,18 +262,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `billing_plan`, `last_billing_date`, `OTP`) VALUES
-(1, 'john', 'wick', 'John98@gmail.com', 'Wicky', '$2y$10$PaGdX9CiQ2ecwxy0q8R3MeEFiX7e2DTM9RZIjVpXrrQ4qr0UDfvhq', 0, '2023-03-27', NULL),
-(2, 'ad', 'asdda', 'adsadasd@gmail.com', 'saddasd', '$2y$10$JdGUJQfn/KAFtUdZ2zHv5ugD/kYDFfdhjAzMsJfGX62xYLRi1.wXy', 0, '2023-03-27', NULL),
-(3, 'af', 'af', 'adf@gmail.com', 'fa', '$2y$10$U4JT.NCPL6WIfS9eAE7cLOX3ctqDcqbhbIq0zqx68doyQLtNNFBda', 0, '2023-03-27', NULL),
-(4, 'mutuu', 'tuu', 'lol98@gmail.com', 'MuTuu', '$2y$10$JL/aAylI2xbiLzYlkpWo4.3cFwJ6oBS.IuvGuPbNiJiYUG128NHxG', 0, '2023-03-27', NULL),
-(5, 'pyae', 'sone', 'ps98@gmail.com', 'mutuu', '$2y$10$XKaE2yPf3.cawNwa/zXvA.yZeaXdGqyGrK/HVPja03K4R.aAhlMHq', 0, '2023-03-27', NULL),
-(6, 'kjh', 'kj', 'ps87@gmail.com', 'sd', '$2y$10$zTQp2cv7orG0tHdYcSzYlegM1DggiryMUSK3lJHFTDRl2n/90qGHu', 0, '2023-03-27', NULL),
-(8, 'dfdsf', 'asfd', 'ssfsdf@gmail.com', 'asf', '$2y$10$jSYWgP5n7PrQmQjf/Hfp3OYbJE5rMmfa0V35ur1SCaSDWVZZTi5M6', 0, '2023-03-27', NULL),
-(13, 'code', 'worms', 'code-worms23@gmail.com', 'cw', '$2y$10$d9kO7jTD8M2OSgR/0868sOrmCiCD4kZnjSNBxbbPaa0Mi0aXI878S', 0, '2023-03-27', NULL),
-(26, 'imm', 'no', 'no98@gmail.com', 'no9', '$2y$10$Pjxzsk0nZ1rOODJkbUCndOFODtA1piLLAacgxLagVe2TOZTGKfOgK', 0, '2023-03-27', NULL),
-(27, 'mal', 'MAL', 'mal@gmail.com', 'malMAl', '$2y$10$gSE5S/TeqCEaqMvXSgiahulawGh47PUFXpRq2B6EoTObE18rk/Svi', 0, '2023-03-27', NULL),
-(28, 'joker', 'ko', 'joke23@gmail.com', 'joke', '$2y$10$XEhv3ltWn6p8y3nLbIUCb.JQ3m2cbdqyfzR7kaeYHkQUYTHNJYWa.', 1, '2023-03-27', NULL),
-(29, 'Cloud', 'Shinora', 'cloud23@gmail.com', 'Cloud', '$2y$10$gnOSjKKLvy97JNXLsSUrxujep0huSzF864sMl/9C1.1D..WQxulRu', 1, '2023-03-27', 9301);
+(30, 'code', 'worm', 'codeworms23@gmail.com', 'codeworm', '$2y$10$bNIfO6DglSjAdN5sNyaPgeaJLrwnJg12MELtD7BxJRDiYamqhg25O', 1, '2023-03-30', 1604),
+(31, 'pyae', 'sone', 'pyaesonethein98@gmail.com', 'pyaesone', '$2y$10$ZQfRC11wayQoTetJT/pxUO4GwGyGKGLJtV2SNzKUHllYFny5XM4JO', 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -418,7 +408,7 @@ ALTER TABLE `episodes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `videos`
@@ -430,7 +420,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
