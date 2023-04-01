@@ -2,11 +2,15 @@
 include "dbconnect.php";
 
 require_once 'vendor/autoload.php';
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: POST");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Headers: Authorization, Content-Type');
+    header('Access-Control-Allow-Methods: POST');
+    header('Access-Control-Max-Age: 86400'); // 24 hours
+    header('Content-Length: 0');
+    header('Content-Type: text/plain');
+    exit();
+}
 
 
 use Firebase\JWT\JWT;
