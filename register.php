@@ -1,7 +1,17 @@
 <?php
-// Include core.php and dbconnect.php files
-include_once 'core.php';
-require_once 'dbconnect.php';
+
+include 'dbconnect.php';
+
+require_once 'vendor/autoload.php';
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Headers: Authorization, Content-Type');
+    header('Access-Control-Allow-Methods: POST');
+    header('Access-Control-Max-Age: 86400'); // 24 hours
+    header('Content-Length: 0');
+    header('Content-Type: text/plain');
+    exit();
+}
 
 // Get the JSON data from the request body
 $data = json_decode(file_get_contents('php://input'), true);
