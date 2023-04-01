@@ -4,8 +4,9 @@ include 'dbconnect.php';
 include 'decodetoken.php';
 // Sanitize the user ID and entity ID from the request
 
-$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
-$token = str_replace('Bearer ', '', $authHeader);
+$headers = apache_request_headers();
+$token = $headers['token'];
+
 
 
 $decodedToken = decodeToken($token);

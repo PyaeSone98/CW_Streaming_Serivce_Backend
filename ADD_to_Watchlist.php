@@ -3,9 +3,8 @@ include 'decodetoken.php';
 include_once 'core.php';
 include 'dbconnect.php';
 // get the JWT token from the Authorization header
-$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
-$token = str_replace('Bearer ', '', $authHeader);
-
+$headers = apache_request_headers();
+$token = $headers['token'];
 
 $decodedToken = decodeToken($token);
 $user_id = $decodedToken;

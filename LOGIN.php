@@ -27,7 +27,6 @@ $email = $data['email'];
 $password = $data['password'];
 
 
-
 // Validate email format
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('HTTP/1.1 400 Bad Request');
