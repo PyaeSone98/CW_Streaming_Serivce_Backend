@@ -25,6 +25,7 @@ if($check_entity_type==1) {
         $movie_data=$lastest_movie_data;
 
     }
+    $movie_data['id']= $movie_data['entity_ID'];
     $movie_data['cover']= "entities/Super_mario_landscape.jpg";
     echo json_encode($movie_data);
     

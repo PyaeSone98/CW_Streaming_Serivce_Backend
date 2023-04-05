@@ -40,15 +40,15 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp-relay.sendinblue.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'pyaesonethein98@gmail.com';
-$mail->Password = 'L3xcnKzSIrfwQZHg';
+$mail->Username = 'emo1889@gmail.com';
+$mail->Password = '7T8Rx6YtN41ryaEn';
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port =587;
 
 // Sender and recipient
 $mail->setFrom('codeworms23@gmail.com', 'Code Worms');
 $mail->addAddress($email);
-
+ 
 // Email content
 $mail->isHTML(true);
 $mail->Subject = 'OTP for CW';

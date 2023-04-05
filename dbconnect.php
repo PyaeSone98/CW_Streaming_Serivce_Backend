@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect("localhost","root","","code-worms_db");
+$db = mysqli_connect("localhost","root","","cw_streaming");
 
 //check connection
 if (mysqli_connect_error()) {
